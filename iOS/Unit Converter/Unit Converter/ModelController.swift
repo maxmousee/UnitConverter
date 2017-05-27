@@ -20,14 +20,13 @@ import UIKit
 
 class ModelController: NSObject, UIPageViewControllerDataSource {
 
-    var pageData: [String] = []
+    var pageData: [String] = ["length", "area", "volume", "temperature", "time", "speed", "pressure",
+                              "frequency"]
 
 
     override init() {
         super.init()
-        // Create the data model.
-        let dateFormatter = DateFormatter()
-        pageData = dateFormatter.monthSymbols
+        // Create the data model
     }
 
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
