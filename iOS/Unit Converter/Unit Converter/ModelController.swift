@@ -20,9 +20,7 @@ import UIKit
 
 class ModelController: NSObject, UIPageViewControllerDataSource {
 
-    var pageData: [String] = ["length", "area", "volume", "temperature", "time", "speed", "pressure",
-                              "frequency"]
-
+    let pageData: [String] = categories
 
     override init() {
         super.init()
