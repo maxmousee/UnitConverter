@@ -8,9 +8,17 @@
 
 import Foundation
 
-var type: String?
-var availableUnits: String?
-var fromUnit: String?
-var toUnit: String?
-var fromValue: Double?
-var toValue: Double?
+protocol ConverterModel {
+
+    var type: String { get }
+    var availableUnits: String? { get set }
+    var fromUnit: String? { get set }
+    var toUnit: String? { get set }
+    var fromValue: Double? { get set }
+    var toValue: Double? { get set }
+    
+    init(type: String);
+    func getAvailableUnits() -> [String];
+    func convert(fromUnit: String, toUnit: String, fromValue: Double, toValue: Double) -> Double;
+
+}
