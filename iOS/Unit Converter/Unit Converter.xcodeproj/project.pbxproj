@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E113C201EDB331C001DF63E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E113C1F1EDB331C001DF63E /* Constants.swift */; };
+		3E2CD9B61EDB77DC00FF2DF8 /* ConverterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CD9B51EDB77DC00FF2DF8 /* ConverterModel.swift */; };
 		3EACDF471EDA3E8C00A75F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF461EDA3E8C00A75F7A /* AppDelegate.swift */; };
 		3EACDF491EDA3E8C00A75F7A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF481EDA3E8C00A75F7A /* RootViewController.swift */; };
 		3EACDF4B1EDA3E8C00A75F7A /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF4A1EDA3E8C00A75F7A /* DataViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		3E113C1F1EDB331C001DF63E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3E2CD9B51EDB77DC00FF2DF8 /* ConverterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterModel.swift; sourceTree = "<group>"; };
 		3EACDF431EDA3E8C00A75F7A /* Unit Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EACDF461EDA3E8C00A75F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EACDF481EDA3E8C00A75F7A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		3E2CD9B41EDB77C700FF2DF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3E2CD9B51EDB77DC00FF2DF8 /* ConverterModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		3EACDF3A1EDA3E8C00A75F7A = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		3EACDF451EDA3E8C00A75F7A /* Unit Converter */ = {
 			isa = PBXGroup;
 			children = (
+				3E2CD9B41EDB77C700FF2DF8 /* Model */,
 				3E113C1E1EDB32FD001DF63E /* Utils */,
 				3EACDF461EDA3E8C00A75F7A /* AppDelegate.swift */,
 				3EACDF481EDA3E8C00A75F7A /* RootViewController.swift */,
@@ -283,6 +294,7 @@
 				3EACDF491EDA3E8C00A75F7A /* RootViewController.swift in Sources */,
 				3EACDF4D1EDA3E8C00A75F7A /* ModelController.swift in Sources */,
 				3EACDF4B1EDA3E8C00A75F7A /* DataViewController.swift in Sources */,
+				3E2CD9B61EDB77DC00FF2DF8 /* ConverterModel.swift in Sources */,
 				3EACDF471EDA3E8C00A75F7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
