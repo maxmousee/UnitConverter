@@ -17,7 +17,7 @@ class DataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
     @IBOutlet weak var toPicker: UIPickerView!
     
-    let muteForPickerData = ["minute(s)","hour(s)"]
+    let muteForPickerData = ["meter", "km", "are", "foot", "inch"]
     
     
     override func viewDidLoad() {
@@ -28,6 +28,16 @@ class DataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         fromPicker.dataSource = self
         toPicker.delegate = self
         toPicker.dataSource = self
+        
+        switch dataObject {
+        case "area" : break
+            //INIT
+            
+        case "length" : break
+            // INIT
+            
+        default: break
+        }
         
     }
 
