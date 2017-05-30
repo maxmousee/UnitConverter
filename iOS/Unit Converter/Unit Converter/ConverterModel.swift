@@ -17,8 +17,8 @@ protocol ConverterModel {
     var fromValue: Double? { get set }
     var toValue: Double? { get set }
     
-    init(type: String);
-    func getAvailableUnits() -> [String];
-    func convert(fromUnit: String, toUnit: String, fromValue: Double, toValue: Double) -> Double;
+    init(converterType: String);
+    //func getAvailableUnits() -> [String];
+    func convert(fromUnit: String, toUnit: String, fromValue: Double, toValue: Double) -> String;
 
 }

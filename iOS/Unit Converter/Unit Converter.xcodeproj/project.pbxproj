@@ -18,6 +18,7 @@
 		3EACDF551EDA3E8C00A75F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EACDF531EDA3E8C00A75F7A /* LaunchScreen.storyboard */; };
 		3EACDF601EDA3E8C00A75F7A /* Unit_ConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF5F1EDA3E8C00A75F7A /* Unit_ConverterTests.swift */; };
 		3EACDF6B1EDA3E8C00A75F7A /* Unit_ConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF6A1EDA3E8C00A75F7A /* Unit_ConverterUITests.swift */; };
+		3EB7A3711EDD1AE600D2FB09 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7A3701EDD1AE600D2FB09 /* UnitConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		3EACDF661EDA3E8C00A75F7A /* Unit ConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit ConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EACDF6A1EDA3E8C00A75F7A /* Unit_ConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit_ConverterUITests.swift; sourceTree = "<group>"; };
 		3EACDF6C1EDA3E8C00A75F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EB7A3701EDD1AE600D2FB09 /* UnitConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		3EACDF451EDA3E8C00A75F7A /* Unit Converter */ = {
 			isa = PBXGroup;
 			children = (
+				3EB7A36F1EDD1AC700D2FB09 /* Converter */,
 				3E2CD9B41EDB77C700FF2DF8 /* Model */,
 				3E113C1E1EDB32FD001DF63E /* Utils */,
 				3EACDF461EDA3E8C00A75F7A /* AppDelegate.swift */,
@@ -151,6 +154,14 @@
 				3EACDF6C1EDA3E8C00A75F7A /* Info.plist */,
 			);
 			path = "Unit ConverterUITests";
+			sourceTree = "<group>";
+		};
+		3EB7A36F1EDD1AC700D2FB09 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				3EB7A3701EDD1AE600D2FB09 /* UnitConverter.swift */,
+			);
+			name = Converter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			files = (
 				3E113C201EDB331C001DF63E /* Constants.swift in Sources */,
 				3EACDF491EDA3E8C00A75F7A /* RootViewController.swift in Sources */,
+				3EB7A3711EDD1AE600D2FB09 /* UnitConverter.swift in Sources */,
 				3EACDF4D1EDA3E8C00A75F7A /* ModelController.swift in Sources */,
 				3EACDF4B1EDA3E8C00A75F7A /* DataViewController.swift in Sources */,
 				3E2CD9B61EDB77DC00FF2DF8 /* ConverterModel.swift in Sources */,
