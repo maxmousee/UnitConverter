@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
+        }
+    }
+}
