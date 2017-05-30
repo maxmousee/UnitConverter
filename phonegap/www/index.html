@@ -1,0 +1,1235 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- JS -->
+    <script>
+    // fix wp8 view port issue, see:
+    // https://github.com/floatinghotpot/cordova-admob-pro/issues/109
+    // https://coderwall.com/p/zk_2la/responsive-design-in-ie-10-on-windows-phone-8
+    // http://stackoverflow.com/questions/24007577/windows-phone-8-viewport-issue
+    (function() {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+          document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/conversor.js"></script>
+    <script type="text/javascript" src="js/conversorEng.js"></script>
+    <script type="text/javascript" src="js/conversorSpa.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+  </head>
+
+  <body>
+  <script type="text/javascript" src="js/admob.js"></script>
+    <!-- 1. Português -->
+    <div data-role="page" id="pageone">
+      <div style="background: #eeeeff; position: fixed; width: 100%; height: 20px; top: 0; z-index: 1;"></div>
+      <div data-role="header" style="margin-top: 20px;">
+        <h1>Conversor de Medidas</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pageone">Português</a></li>
+            <li><a href="#pagetwo">Inglês</a></li>
+            <li><a href="#pagethree">Espanhol</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-role="main" class="ui-content">
+
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <span>Casas decimais: </span>
+            <select id="decimais">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="ui-block-b">
+            <span>Formato: </span>
+            <select id="formato">
+              <option value="us">0000.00</option>
+              <option value="br" selected>0.000,00</option>
+            </select>
+          </div>
+        </div>
+        <!--peso-->
+        <div data-role="collapsible">
+          <h1>Peso</h1>
+          <br>
+          <label for="valor-peso">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-peso" name="valor-peso" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-peso">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesPesoDe" name="unidadesPesoDe" class="form-control">
+            <option value="lb" selected>Libra (lb)</option>
+            <option value="oz">Onça (oz)</option>
+            <option value="mg">Miligrama (mg)</option>
+            <option value="g">Grama (g)</option>
+            <option value="kg">Quilograma (kg)</option>
+            <option value="t">Tonelada (t)</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesPesoPara" name="unidadesPesoPara" class="form-control">
+            <option value="lb">Libra (lb)</option>
+            <option value="oz">Onça (oz)</option>
+            <option value="mg">Miligrama (mg)</option>
+            <option value="g">Grama (g)</option>
+            <option value="kg" selected>Quilograma (kg)</option>
+            <option value="t">Tonelada (t)</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoPeso"></span></h3>
+        </div>
+        <!--temperatura-->
+        <div data-role="collapsible">
+          <h1>Temperatura</h1>
+          <br>
+          <label for="valor-temperatura">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-temperatura" name="valor-temperatura" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-temperatura">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesTemperaturaDe" name="unidadesTemperaturaDe" class="form-control">
+            <option value="c" selected>Celsius (ºC)</option>
+            <option value="f">Fahrenheit (ºF)</option>
+            <option value="k">Kelvin (K)</option>
+            <option value="r">Rankine (ºR)</option>
+            <option value="n">Newton (ºN)</option>
+            <option value="re">Réaumur (ºRé)</option>
+            <option value="ro">Rømer (ºRø)</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesTemperaturaPara" name="unidadesTemperaturaPara" class="form-control">
+            <option value="c">Celsius (ºC)</option>
+            <option value="f" selected>Fahrenheit (ºF)</option>
+            <option value="k">Kelvin (K)</option>
+            <option value="r">Rankine (ºR)</option>
+            <option value="n">Newton (ºN)</option>
+            <option value="re">Réaumur (ºRé)</option>
+            <option value="ro">Rømer (ºRø)</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoTemp"></span></h3>
+        </div>
+        <!--pressão-->
+        <div data-role="collapsible">
+          <h1>Pressão</h1>
+          <br>
+          <label for="valor-pressao">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-pressao" name="valor-pressao" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-pressao">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesPressaoDe" name="unidadesPressaoDe" class="form-control">
+            <option value="lpo">Libra/Polegada² (psi)</option>
+            <option value="lpe">Libra/Pé² (psf)</option>
+            <option value="at" selected>Atmosfera (atm)</option>
+            <option value="ba">Bar</option>
+            <option value="pom">Polegada de Mercúrio (inHg)</option>
+            <option value="cem">Centímetro de Mercúrio (cmHg)</option>
+            <option value="qmq">Quilograma/m² (kg/m²)</option>
+            <option value="pas">Pascal (pa)</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesPressaoPara" name="unidadesPressaoPara" class="form-control">
+            <option value="lpo">Libra/Polegada² (psi)</option>
+            <option value="lpe">Libra/Pé² (psf)</option>
+            <option value="at">Atmosfera (atm)</option>
+            <option value="ba">Bar</option>
+            <option value="pom">Polegada de Mercúrio (inHg)</option>
+            <option value="cem">Centímetro de Mercúrio (cmHg)</option>
+            <option value="qmq">Quilograma/m² (kg/m²)</option>
+            <option value="pas" selected>Pascal (pa)</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoPress"></span></h3>
+        </div>
+        <!--velocidade-->
+        <div data-role="collapsible">
+          <h1>Velocidade</h1>
+          <br>
+          <label for="valor-velocidade">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-velocidade" name="valor-velocidade" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-velocidade">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesVelocidadeDe" name="unidadesVelocidadeDe" class="form-control">
+            <option value="ms">Metro/Segundo (m/s)</option>
+            <option value="mih" selected>Milha/Hora (mph)</option>
+            <option value="kmh">Quilômetro/Hora (km/h)</option>
+            <option value="fts">Pé/Segundo (ft/s)</option>
+            <option value="n">Nó (kn)</option>
+            <option value="kms">Quilômetro/Segundo (km/s)</option>
+            <option value="mis">Milha/Segundo (mi/s)</option>
+            <option value="luz">Velocidade da Luz (c)</option>
+            <option value="som">Velocidade do Som (mach)</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesVelocidadePara" name="unidadesVelocidadePara" class="form-control">
+            <option value="ms">Metro/Segundo (m/s)</option>
+            <option value="mih">Milha/Hora (mph)</option>
+            <option value="kmh" selected>Quilômetro/Hora (km/h)</option>
+            <option value="fts">Pé/Segundo (ft/s)</option>
+            <option value="n">Nó (kn)</option>
+            <option value="kms">Quilômetro/Segundo (km/s)</option>
+            <option value="mis">Milha/Segundo (mi/s)</option>
+            <option value="luz">Velocidade da Luz (c)</option>
+            <option value="som">Velocidade do Som (mach)</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoVelocidade"></span></h3>
+        </div>
+        <!--tempo-->
+        <div data-role="collapsible">
+          <h1>Tempo</h1>
+          <br>
+          <label for="valor-tempo">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-tempo" name="valor-tempo" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-tempo">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesTempoDe" name="unidadesTempoDe" class="form-control">
+            <option value="ns">Nanosegundos (ns)</option>
+            <option value="us">Microsegundos (µs)</option>
+            <option value="ms">Milisegundos (ms)</option>
+            <option value="s">Segundos (s)</option>
+            <option value="min">Minutos</option>
+            <option value="hrs" selected>Horas</option>
+            <option value="dia">Dias</option>
+            <option value="sem">Semanas</option>
+            <option value="mes">Meses</option>
+            <option value="ano">Anos</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesTempoPara" name="unidadesTempoPara" class="form-control">
+            <option value="ns">Nanosegundos (ns)</option>
+            <option value="us">Microsegundos (µs)</option>
+            <option value="ms">Milisegundos (ms)</option>
+            <option value="s">Segundos (s)</option>
+            <option value="min">Minutos</option>
+            <option value="hrs">Horas</option>
+            <option value="dia" selected>Dias</option>
+            <option value="sem">Semanas</option>
+            <option value="mes">Meses</option>
+            <option value="ano">Anos</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoTempo"></span></h3>
+        </div>
+        <!--volume-->
+        <div data-role="collapsible">
+          <h1>Volume</h1>
+          <br>
+          <label for="valor-volume">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-volume" name="valor-volume" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-volume">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesVolumeDe" name="unidadesVolumeDe" class="form-control">
+            <option value="gal" selected>Galões (gal)</option> 
+            <option value="l">Litros (l)</option>
+            <option value="floz">Onça Fluída (fl oz)</option>
+            <option value="m3">Metro cúbico (m³)</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesVolumePara" name="unidadesVolumePara" class="form-control">
+            <option value="gal">Galões (gal)</option>
+            <option value="l" selected>Litros (l)</option>
+            <option value="floz">Onça Fluída (fl oz)</option>
+            <option value="m3">Metro cúbico (m³)</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoVolume"></span></h3>
+        </div>
+        <!--comprimento-->
+        <div data-role="collapsible">
+          <h1>Comprimento</h1>
+          <br>
+          <label for="valor-comprimento">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-comprimento" name="valor-comprimento" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-comprimento">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesComprimentoDe" name="unidadesComprimentoDe" class="form-control">
+            <option value="mi" selected>Milha (mi)</option>
+            <option value="yd">Jarda (yd)</option>
+            <option value="ft">Pé (ft)</option>
+            <option value="km">Quilômetro (km)</option>
+            <option value="m">Metro (m)</option>
+            <option value="dm">Decímetro (dm)</option>
+            <option value="cm">Centímetro (cm)</option>
+            <option value="mm">Milímetro (mm)</option>
+            <option value="in">Polegadas (in)</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesComprimentoPara" name="unidadesComprimentoPara" class="form-control">
+            <option value="mi" >Milha (mi)</option>
+            <option value="yd">Jarda (yd)</option>
+            <option value="ft">Pé (ft)</option>
+            <option value="km" selected>Quilômetro (km)</option>
+            <option value="m">Metro (m)</option>
+            <option value="dm">Decímetro (dm)</option>
+            <option value="cm">Centímetro (cm)</option>
+            <option value="mm">Milímetro (mm)</option>
+            <option value="in">Polegadas (in)</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoComprimento"></span></h3>
+        </div>
+        <!--area-->
+        <div data-role="collapsible">
+          <h1>Área</h1>
+          <br>
+          <label for="valor-area">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-area" name="valor-area" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-area">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesAreaDe" name="unidadesAreaDe" class="form-control">
+            <option value="sqft" selected>Pé Quadrado (sq ft)</option>
+            <option value="ha">Hectare (ha)</option>
+            <option value="m2">Metros Quadrados (m²)</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesAreaPara" name="unidadesAreaPara" class="form-control">
+            <option value="sqft">Pé Quadrado (sq ft)</option>
+            <option value="ha">Hectare (ha)</option>
+            <option value="m2" selected>Metros Quadrados (m²)</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoArea"></span></h3>
+        </div>
+        <!--frequencia-->
+        <div data-role="collapsible">
+          <h1>Frequência</h1>
+          <br>
+          <label for="valor-frequencia">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-frequencia" name="valor-frequencia" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-frequencia">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesFrequenciaDe" name="unidadesFrequenciaDe" class="form-control">
+            <option value="hz" selected>Hertz (Hz)</option>
+            <option value="khz">Quilohertz (kHz)</option>
+            <option value="mhz">Megahertz (MHz)</option>
+            <option value="ghz">Gigahertz (GHz)</option>
+            <option value="1s">1/s</option>
+            <option value="1min">1/min</option>
+            <option value="1h">1/h</option>
+            <option value="1dia">1/dia</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesFrequenciaPara" name="unidadesFrequenciaPara" class="form-control">
+            <option value="hz">Hertz (Hz)</option>
+            <option value="khz">Quilohertz (kHz)</option>
+            <option value="mhz" selected>Megahertz (MHz)</option>
+            <option value="ghz">Gigahertz (GHz)</option>
+            <option value="1s">1/s</option>
+            <option value="1min">1/min</option>
+            <option value="1h">1/h</option>
+            <option value="1dia">1/dia</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoFrequencia"></span></h3>
+        </div>
+        <!--angulo-->
+        <div data-role="collapsible">
+          <h1>Ângulo</h1>
+          <br>
+          <label for="valor-angulo">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="valor-angulo" name="valor-angulo" placeholder="Digite um valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Converter" id="btn-converter-angulo">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesAnguloDe" name="unidadesAnguloDe" class="form-control">
+            <option value="grau" selected>Grau</option>
+            <option value="grad">Grado</option>
+            <option value="minu">Minuto</option>
+            <option value="radi">Radiano</option>
+            <option value="segu">Segundo</option>
+            <option value="rota">Rotação</option>
+          </select>
+          <span>Para:</span>
+          <select id="unidadesAnguloPara" name="unidadesAnguloPara" class="form-control">
+            <option value="grau">Grau</option>
+            <option value="grad">Grado</option>
+            <option value="minu">Minuto</option>
+            <option value="radi" selected>Radiano</option>
+            <option value="segu">Segundo</option>
+            <option value="rota">Rotação</option>
+          </select> 
+          <h3>Resultado: <span id="resultadoAngulo"></span></h3>
+        </div>
+      </div>
+
+      <div data-role="footer" style="height: 40px;">
+      <h1></h1>
+      </div>
+    </div>
+
+    <!-- 2. Inglês -->
+    <div data-role="page" id="pagetwo">
+      <div style="background: #eeeeff; position: fixed; width: 100%; height: 20px; top: 0; z-index: 1;"></div>
+      <div data-role="header" style="margin-top: 20px;">
+        <h1>Unit Converter</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pageone">Portuguese</a></li>
+            <li><a href="#pagetwo">English</a></li>
+            <li><a href="#pagethree">Spanish</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <span>Decimal places: </span>
+            <select id="eng-decimais">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="ui-block-b">
+            <span>Format: </span>
+            <select id="eng-formato">
+              <option value="us" selected>0000.00</option>
+              <option value="br">0.000,00</option>
+            </select>
+          </div>
+        </div>
+        <!--peso-->
+        <div data-role="collapsible">
+          <h1>Weight</h1>
+          <br>
+          <label for="valor-peso">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-peso" name="valor-peso" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-peso">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesPesoDe" name="unidadesPesoDe" class="form-control">
+            <option value="lb" selected>Pound (lb)</option>
+            <option value="oz">Ounce (oz)</option>
+            <option value="mg">Milligram (mg)</option>
+            <option value="g">Gram (g)</option>
+            <option value="kg">Kilogram (kg)</option>
+            <option value="t">Tonne (t)</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesPesoPara" name="unidadesPesoPara" class="form-control">
+            <option value="lb">Pound (lb)</option>
+            <option value="oz">Ounce (oz)</option>
+            <option value="mg">Milligram (mg)</option>
+            <option value="g">Gram (g)</option>
+            <option value="kg" selected>Kilogram (kg)</option>
+            <option value="t">Tonne (t)</option>
+          </select> 
+          <h3>Result: <span id="engResultadoPeso"></span></h3>
+        </div>
+        <!--temperatura-->
+        <div data-role="collapsible">
+          <h1>Temperature</h1>
+          <br>
+          <label for="valor-temperatura">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-temperatura" name="valor-temperatura" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-temperatura">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesTemperaturaDe" name="unidadesTemperaturaDe" class="form-control">
+            <option value="c" selected>Celsius (ºC)</option>
+            <option value="f">Fahrenheit (ºF)</option>
+            <option value="k">Kelvin (K)</option>
+            <option value="r">Rankine (ºR)</option>
+            <option value="n">Newton (ºN)</option>
+            <option value="re">Réaumur (ºRé)</option>
+            <option value="ro">Rømer (ºRø)</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesTemperaturaPara" name="unidadesTemperaturaPara" class="form-control">
+            <option value="c">Celsius (ºC)</option>
+            <option value="f" selected>Fahrenheit (ºF)</option>
+            <option value="k">Kelvin (K)</option>
+            <option value="r">Rankine (ºR)</option>
+            <option value="n">Newton (ºN)</option>
+            <option value="re">Réaumur (ºRé)</option>
+            <option value="ro">Rømer (ºRø)</option>
+          </select> 
+          <h3>Result: <span id="engResultadoTemp"></span></h3>
+        </div>
+        <!--pressão-->
+        <div data-role="collapsible">
+          <h1>Pressure</h1>
+          <br>
+          <label for="valor-pressao">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-pressao" name="valor-pressao" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-pressao">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesPressaoDe" name="unidadesPressaoDe" class="form-control">
+            <option value="lpo">Pound/Inch (psi)</option>
+            <option value="lpe">Pound/Foot² (psf)</option>
+            <option value="at" selected>Atmosphere (atm)</option>
+            <option value="ba">Bar</option>
+            <option value="pom">Inch of Mercury (inHg)</option>
+            <option value="cem">Centimeter of Mercury (cmHg)</option>
+            <option value="qmq">Kilogram/m² (kg/m²)</option>
+            <option value="pas">Pascal (pa)</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesPressaoPara" name="unidadesPressaoPara" class="form-control">
+            <option value="lpo">Pound/Inch (psi)</option>
+            <option value="lpe">Pound/Foot² (psf)</option>
+            <option value="at">Atmosphere (atm)</option>
+            <option value="ba">Bar</option>
+            <option value="pom">Inch of Mercury (inHg)</option>
+            <option value="cem">Centimeter of Mercury (cmHg)</option>
+            <option value="qmq">Kilogram/m² (kg/m²)</option>
+            <option value="pas" selected>Pascal (pa)</option>
+          </select> 
+          <h3>Result: <span id="engResultadoPress"></span></h3>
+        </div>
+        <!--velocidade-->
+        <div data-role="collapsible">
+          <h1>Speed</h1>
+          <br>
+          <label for="valor-velocidade">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-velocidade" name="valor-velocidade" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-velocidade">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesVelocidadeDe" name="unidadesVelocidadeDe" class="form-control">
+            <option value="ms">Meter/Second (m/s)</option>
+            <option value="mih" selected>Mile/Hour (mph)</option>
+            <option value="kmh">Kilometer/Hour (km/h)</option>
+            <option value="fts">Foot/Second (ft/s)</option>
+            <option value="n">Node (kn)</option>
+            <option value="kms">Kilometer/Second (km/s)</option>
+            <option value="mis">Mile/Second (mi/s)</option>
+            <option value="luz">The speed of light (c)</option>
+            <option value="som">The speed of sound (mach)</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesVelocidadePara" name="unidadesVelocidadePara" class="form-control">
+            <option value="ms">Meter/Second (m/s)</option>
+            <option value="mih">Mile/Hour (mph)</option>
+            <option value="kmh" selected>Kilometer/Hour (km/h)</option>
+            <option value="fts">Foot/Second (ft/s)</option>
+            <option value="n">Node (kn)</option>
+            <option value="kms">Kilometer/Second (km/s)</option>
+            <option value="mis">Mile/Second (mi/s)</option>
+            <option value="luz">The speed of light (c)</option>
+            <option value="som">The speed of sound (mach)</option>
+          </select> 
+          <h3>Result: <span id="engResultadoVelocidade"></span></h3>
+        </div>
+        <!--tempo-->
+        <div data-role="collapsible">
+          <h1>Time</h1>
+          <br>
+          <label for="valor-tempo">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-tempo" name="valor-tempo" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-tempo">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesTempoDe" name="unidadesTempoDe" class="form-control">
+            <option value="ns">Nanoseconds (ns)</option>
+            <option value="us">Microseconds (µs)</option>
+            <option value="ms">Milliseconds (ms)</option>
+            <option value="s">Seconds (s)</option>
+            <option value="min">Minutes</option>
+            <option value="hrs" selected>Hours</option>
+            <option value="dia">Days</option>
+            <option value="sem">Weeks</option>
+            <option value="mes">Months</option>
+            <option value="ano">Years</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesTempoPara" name="unidadesTempoPara" class="form-control">
+            <option value="ns">Nanoseconds (ns)</option>
+            <option value="us">Microseconds (µs)</option>
+            <option value="ms">Milliseconds (ms)</option>
+            <option value="s">Seconds (s)</option>
+            <option value="min">Minutes</option>
+            <option value="hrs">Hours</option>
+            <option value="dia" selected>Days</option>
+            <option value="sem">Weeks</option>
+            <option value="mes">Months</option>
+            <option value="ano">Years</option>
+          </select> 
+          <h3>Result: <span id="engResultadoTempo"></span></h3>
+        </div>
+        <!--volume-->
+        <div data-role="collapsible">
+          <h1>Volume</h1>
+          <br>
+          <label for="valor-volume">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-volume" name="valor-volume" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-volume">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesVolumeDe" name="unidadesVolumeDe" class="form-control">
+            <option value="gal" selected>Gallon (gal)</option>
+            <option value="l">Liter (l)</option>
+            <option value="floz">Fluid Ounce (fl oz)</option>
+            <option value="m3">Cubic Meter (m³)</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesVolumePara" name="unidadesVolumePara" class="form-control">
+            <option value="gal">Gallon (gal)</option>
+            <option value="l" selected>Liter (l)</option>
+            <option value="floz">Fluid Ounce (fl oz)</option>
+            <option value="m3">Cubic Meter (m³)</option>
+          </select> 
+          <h3>Result: <span id="engResultadoVolume"></span></h3>
+        </div>
+        <!--comprimento-->
+        <div data-role="collapsible">
+          <h1>Length</h1>
+          <br>
+          <label for="valor-comprimento">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-comprimento" name="valor-comprimento" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-comprimento">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesComprimentoDe" name="unidadesComprimentoDe" class="form-control">
+            <option value="mi" selected>Mile (mi)</option>
+            <option value="yd">Yard (yd)</option>
+            <option value="ft">Foot (ft)</option>
+            <option value="km">Kilometer (km)</option>
+            <option value="m">Meter (m)</option>
+            <option value="dm">Decimeter (dm)</option>
+            <option value="cm">Centimeter (cm)</option>
+            <option value="mm">Milimeter (mm)</option>
+            <option value="in">Inches (in)</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesComprimentoPara" name="unidadesComprimentoPara" class="form-control">
+            <option value="mi">Mile (mi)</option>
+            <option value="yd">Yard (yd)</option>
+            <option value="ft">Foot (ft)</option>
+            <option value="km" selected>Kilometer (km)</option>
+            <option value="m">Meter (m)</option>
+            <option value="dm">Decimeter (dm)</option>
+            <option value="cm">Centimeter (cm)</option>
+            <option value="mm">Milimeter (mm)</option>
+            <option value="in">Inches (in)</option>
+          </select> 
+          <h3>Result: <span id="engResultadoComprimento"></span></h3>
+        </div>
+        <!--area-->
+        <div data-role="collapsible">
+          <h1>Area</h1>
+          <br>
+          <label for="valor-area">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-area" name="valor-area" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-area">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesAreaDe" name="unidadesAreaDe" class="form-control">
+            <option value="sqft" selected>Square Foot (sq ft)</option>
+            <option value="ha">Hectare (ha)</option>
+            <option value="m2">Square Meter (m²)</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesAreaPara" name="unidadesAreaPara" class="form-control">
+            <option value="sqft">Square Foot (sq ft)</option>
+            <option value="ha">Hectare (ha)</option>
+            <option value="m2" selected>Square Meter (m²)</option>  
+          </select> 
+          <h3>Result: <span id="engResultadoArea"></span></h3>
+        </div>
+        <!--frequencia-->
+        <div data-role="collapsible">
+          <h1>Frequency</h1>
+          <br>
+          <label for="valor-frequencia">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-frequencia" name="valor-frequencia" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-frequencia">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesFrequenciaDe" name="unidadesFrequenciaDe" class="form-control">
+            <option value="hz" selected>Hertz (Hz)</option>
+            <option value="khz">Kilohertz (kHz)</option>
+            <option value="mhz">Megahertz (MHz)</option>
+            <option value="ghz">Gigahertz (GHz)</option>
+            <option value="1s">1/s</option>
+            <option value="1min">1/min</option>
+            <option value="1h">1/h</option>
+            <option value="1dia">1/day</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesFrequenciaPara" name="unidadesFrequenciaPara" class="form-control">
+            <option value="hz">Hertz (Hz)</option>
+            <option value="khz">Kilohertz (kHz)</option>
+            <option value="mhz" selected>Megahertz (MHz)</option>
+            <option value="ghz">Gigahertz (GHz)</option>
+            <option value="1s">1/s</option>
+            <option value="1min">1/min</option>
+            <option value="1h">1/h</option>
+            <option value="1dia">1/day</option>
+          </select> 
+          <h3>Result: <span id="engResultadoFrequencia"></span></h3>
+        </div>
+        <!--angulo-->
+        <div data-role="collapsible">
+          <h1>Angle</h1>
+          <br>
+          <label for="valor-angulo">Value</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="eng-valor-angulo" name="valor-angulo" placeholder="Type the value" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convert" id="eng-btn-converter-angulo">
+            </div>
+          </div>
+          <span>From:</span>
+          <select id="unidadesAnguloDe" name="unidadesAnguloDe" class="form-control">
+            <option value="grau" selected>Degree</option>
+            <option value="grad">Grad</option>
+            <option value="minu">Minute</option>
+            <option value="radi">Radian</option>
+            <option value="segu">Second</option>
+            <option value="rota">Circle</option>
+          </select>
+          <span>To:</span>
+          <select id="unidadesAnguloPara" name="unidadesAnguloPara" class="form-control">
+            <option value="grau">Degree</option>
+            <option value="grad">Grad</option>
+            <option value="minu">Minute</option>
+            <option value="radi" selected>Radian</option>
+            <option value="segu">Second</option>
+            <option value="rota">Circle</option>
+          </select> 
+          <h3>Result: <span id="engResultadoAngulo"></span></h3>
+        </div>
+      </div>
+
+      <div data-role="footer">
+        <h1></h1>
+      </div>
+    </div> 
+
+    <!-- 3. Espanhol -->
+    <div data-role="page" id="pagethree">
+      <div style="background: #eeeeff; position: fixed; width: 100%; height: 20px; top: 0; z-index: 1;"></div>
+      <div data-role="header" style="margin-top: 20px;">
+        <h1>Convertidor de Medidas</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pageone">Portugués</a></li>
+            <li><a href="#pagetwo">Inglés</a></li>
+            <li><a href="#pagethree">Español</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <span>Número de Decimales:</span>
+            <select id="spa-decimais">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="ui-block-b">
+            <span>Formato: </span>
+            <select id="spa-formato">
+              <option value="us">0000.00</option>
+              <option value="br" selected>0.000,00</option>
+            </select>
+          </div>
+        </div>
+        <!--peso-->
+        <div data-role="collapsible">
+          <h1>Peso</h1>
+          <br>
+          <label for="valor-peso">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-peso" name="valor-peso" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-peso">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesPesoDe" name="unidadesPesoDe" class="form-control">
+            <option value="lb" selected>Libra (lb)</option>
+            <option value="oz">Onza (oz)</option>
+            <option value="mg">Miligramo (mg)</option>
+            <option value="g">Gramo (g)</option>
+            <option value="kg">Kilogramo (kg)</option>
+            <option value="t">Tonelada (t)</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesPesoPara" name="unidadesPesoPara" class="form-control">
+            <option value="lb">Libra (lb)</option>
+            <option value="oz">Onza (oz)</option>
+            <option value="mg">Miligramo (mg)</option>
+            <option value="g">Gramo (g)</option>
+            <option value="kg" selected>Kilogramo (kg)</option>
+            <option value="t">Tonelada (t)</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoPeso"></span></h3>
+        </div>
+        <!--temperatura-->
+        <div data-role="collapsible">
+          <h1>Temperatura</h1>
+          <br>
+          <label for="valor-temperatura">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-temperatura" name="valor-temperatura" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-temperatura">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesTemperaturaDe" name="unidadesTemperaturaDe" class="form-control">
+            <option value="c" selected>Celsius (ºC)</option>
+            <option value="f">Fahrenheit (ºF)</option>
+            <option value="k">Kelvin (K)</option>
+            <option value="r">Rankine (ºR)</option>
+            <option value="n">Newton (ºN)</option>
+            <option value="re">Réaumur (ºRé)</option>
+            <option value="ro">Rømer (ºRø)</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesTemperaturaPara" name="unidadesTemperaturaPara" class="form-control">
+            <option value="c">Celsius (ºC)</option>
+            <option value="f" selected>Fahrenheit (ºF)</option>
+            <option value="k">Kelvin (K)</option>
+            <option value="r">Rankine (ºR)</option>
+            <option value="n">Newton (ºN)</option>
+            <option value="re">Réaumur (ºRé)</option>
+            <option value="ro">Rømer (ºRø)</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoTemp"></span></h3>
+        </div>
+        <!--pressão-->
+        <div data-role="collapsible">
+          <h1>Presión</h1>
+          <br>
+          <label for="valor-pressao">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-pressao" name="valor-pressao" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-pressao">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesPressaoDe" name="unidadesPressaoDe" class="form-control">
+            <option value="lpo">Libra/Pulgada² (psi)</option>
+            <option value="lpe">Libra/foot² (psf)</option>
+            <option value="at" selected>Atmósfera (atm)</option>
+            <option value="ba">Bar</option>
+            <option value="pom">Pulgada de Mercurio (inHg)</option>
+            <option value="cem">Centímetro de Mercurio (cmHg)</option>
+            <option value="qmq">Kilogramo/m² (kg/m²)</option>
+            <option value="pas">Pascal (pa)</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesPressaoPara" name="unidadesPressaoPara" class="form-control">
+            <option value="lpo">Libra/Pulgada² (psi)</option>
+            <option value="lpe">Libra/foot² (psf)</option>
+            <option value="at">Atmósfera (atm)</option>
+            <option value="ba">Bar</option>
+            <option value="pom">Pulgada de Mercurio (inHg)</option>
+            <option value="cem">Centímetro de Mercurio (cmHg)</option>
+            <option value="qmq">Kilogramo/m² (kg/m²)</option>
+            <option value="pas" selected>Pascal (pa)</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoPress"></span></h3>
+        </div>
+        <!--velocidade-->
+        <div data-role="collapsible">
+          <h1>Velocidad</h1>
+          <br>
+          <label for="valor-velocidade">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-velocidade" name="valor-velocidade" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-velocidade">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesVelocidadeDe" name="unidadesVelocidadeDe" class="form-control">
+            <option value="ms">Metro/Segundo (m/s)</option>
+            <option value="mih" selected>Milla/Hora (mph)</option>
+            <option value="kmh">Kilómetro/Hora (km/h)</option>
+            <option value="fts">Pie/Segundo (ft/s)</option>
+            <option value="n">Nodo (kn)</option>
+            <option value="kms">Kilómetro/Segundo (km/s)</option>
+            <option value="mis">Milla/Segundo (mi/s)</option>
+            <option value="luz">Velocidad de la Luz (c)</option>
+            <option value="som">Velocidad del Sonido (mach)</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesVelocidadePara" name="unidadesVelocidadePara" class="form-control">
+            <option value="ms">Metro/Segundo (m/s)</option>
+            <option value="mih">Milla/Hora (mph)</option>
+            <option value="kmh" selected>Kilómetro/Hora (km/h)</option>
+            <option value="fts">Pie/Segundo (ft/s)</option>
+            <option value="n">Nodo (kn)</option>
+            <option value="kms">Kilómetro/Segundo (km/s)</option>
+            <option value="mis">Milla/Segundo (mi/s)</option>
+            <option value="luz">Velocidad de la Luz (c)</option>
+            <option value="som">Velocidad del Sonido (mach)</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoVelocidade"></span></h3>
+        </div>
+        <!--tempo-->
+        <div data-role="collapsible">
+          <h1>Tempo</h1>
+          <br>
+          <label for="valor-tempo">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-tempo" name="valor-tempo" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-tempo">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesTempoDe" name="unidadesTempoDe" class="form-control">
+            <option value="ns">Nanosegundos (ns)</option>
+            <option value="us">Microsegundos (µs)</option>
+            <option value="ms">Milisegundos (ms)</option>
+            <option value="s">Segundos (s)</option>
+            <option value="min">Minutos</option>
+            <option value="hrs" selected>Horas</option>
+            <option value="dia">Días</option>
+            <option value="sem">Semanas</option>
+            <option value="mes">Meses</option>
+            <option value="ano">Años</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesTempoPara" name="unidadesTempoPara" class="form-control">
+            <option value="ns">Nanosegundos (ns)</option>
+            <option value="us">Microsegundos (µs)</option>
+            <option value="ms">Milisegundos (ms)</option>
+            <option value="s">Segundos (s)</option>
+            <option value="min">Minutos</option>
+            <option value="hrs">Horas</option>
+            <option value="dia" selected>Días</option>
+            <option value="sem">Semanas</option>
+            <option value="mes">Meses</option>
+            <option value="ano">Años</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoTempo"></span></h3>
+        </div>
+        <!--volume-->
+        <div data-role="collapsible">
+          <h1>Volumen</h1>
+          <br>
+          <label for="valor-volume">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-volume" name="valor-volume" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-volume">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesVolumeDe" name="unidadesVolumeDe" class="form-control">
+            <option value="gal" selected>Galones (gal)</option>
+            <option value="l">Litros (l)</option>
+            <option value="floz">Onza Fluida (fl oz)</option>
+            <option value="m3">Metro cúbico (m³)</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesVolumePara" name="unidadesVolumePara" class="form-control">
+            <option value="gal">Galones (gal)</option>
+            <option value="l" selected>Litros (l)</option>
+            <option value="floz">Onza Fluida (fl oz)</option>
+            <option value="m3">Metro cúbico (m³)</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoVolume"></span></h3>
+        </div>
+        <!--comprimento-->
+        <div data-role="collapsible">
+          <h1>Longitud</h1>
+          <br>
+          <label for="valor-comprimento">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-comprimento" name="valor-comprimento" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-comprimento">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesComprimentoDe" name="unidadesComprimentoDe" class="form-control">
+            <option value="mi" selected>Milla (mi)</option>
+            <option value="yd">Yarda (yd)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="km">Kilómetro (km)</option>
+            <option value="m">Metro (m)</option>
+            <option value="dm">Decímetro (dm)</option>
+            <option value="cm">Centímetro (cm)</option>
+            <option value="mm">Milímetro (mm)</option>
+            <option value="in">Pulgada (in)</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesComprimentoPara" name="unidadesComprimentoPara" class="form-control">
+            <option value="mi" >Milla (mi)</option>
+            <option value="yd">Yarda (yd)</option>
+            <option value="ft">Pie (ft)</option>
+            <option value="km" selected>Kilómetro (km)</option>
+            <option value="m">Metro (m)</option>
+            <option value="dm">Decímetro (dm)</option>
+            <option value="cm">Centímetro (cm)</option>
+            <option value="mm">Milímetro (mm)</option>
+            <option value="in">Pulgada (in)</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoComprimento"></span></h3>
+        </div>
+        <!--area-->
+        <div data-role="collapsible">
+          <h1>Área</h1>
+          <br>
+          <label for="valor-area">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-area" name="valor-area" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-area">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesAreaDe" name="unidadesAreaDe" class="form-control">
+            <option value="sqft" selected>Pie Cuadrado (sq ft)</option>
+            <option value="ha">Hectárea (ha)</option>
+            <option value="m2">Metros Cuadrados (m²)</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesAreaPara" name="unidadesAreaPara" class="form-control">
+            <option value="sqft">Pie Cuadrado (sq ft)</option>
+            <option value="ha">Hectárea (ha)</option>
+            <option value="m2" selected>Metros Cuadrados (m²)</option>  
+          </select> 
+          <h3>Resultado: <span id="spaResultadoArea"></span></h3>
+        </div>
+        <!--frequencia-->
+        <div data-role="collapsible">
+          <h1>Frecuencia</h1>
+          <br>
+          <label for="valor-frequencia">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-frequencia" name="valor-frequencia" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-frequencia">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesFrequenciaDe" name="unidadesFrequenciaDe" class="form-control">
+            <option value="hz" selected>Hertz (Hz)</option>
+            <option value="khz">Kilohertz (kHz)</option>
+            <option value="mhz">Megahertz (MHz)</option>
+            <option value="ghz">Gigahertz (GHz)</option>
+            <option value="1s">1/s</option>
+            <option value="1min">1/min</option>
+            <option value="1h">1/h</option>
+            <option value="1dia">1/día</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesFrequenciaPara" name="unidadesFrequenciaPara" class="form-control">
+            <option value="hz">Hertz (Hz)</option>
+            <option value="khz">Kilohertz (kHz)</option>
+            <option value="mhz" selected>Megahertz (MHz)</option>
+            <option value="ghz">Gigahertz (GHz)</option>
+            <option value="1s">1/s</option>
+            <option value="1min">1/min</option>
+            <option value="1h">1/h</option>
+            <option value="1dia">1/día</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoFrequencia"></span></h3>
+        </div>
+        <!--angulo-->
+        <div data-role="collapsible">
+          <h1>Ángulo</h1>
+          <br>
+          <label for="valor-angulo">Valor</label>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <input type="number" id="spa-valor-angulo" name="valor-angulo" placeholder="Introduzca un valor" required>
+            </div>
+            <div class="ui-block-b">
+              <input type="button" value="Convertir" id="spa-btn-converter-angulo">
+            </div>
+          </div>
+          <span>De:</span>
+          <select id="unidadesAnguloDe" name="unidadesAnguloDe" class="form-control">
+            <option value="grau" selected>Grado Sexagesimal</option>
+            <option value="grad">Grado Centesimal</option>
+            <option value="minu">Minuto</option>
+            <option value="radi">Radián</option>
+            <option value="segu">Segundo</option>
+            <option value="rota">Rotación</option>
+          </select>
+          <span>A:</span>
+          <select id="unidadesAnguloPara" name="unidadesAnguloPara" class="form-control">
+            <option value="grau">Grado Sexagesimal</option>
+            <option value="grad">Grado Centesimal</option>
+            <option value="minu">Minuto</option>
+            <option value="radi" selected>Radián</option>
+            <option value="segu">Segundo</option>
+            <option value="rota">Rotación</option>
+          </select> 
+          <h3>Resultado: <span id="spaResultadoAngulo"></span></h3>
+        </div>
+      </div>
+
+      <div data-role="footer">
+        <h1></h1>
+      </div>
+    </div> 
+
+  </body>
+  </html>
