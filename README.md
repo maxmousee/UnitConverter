@@ -1,2 +1,4 @@
-# UnitConverter
-Simple unit converter - no ads, native coding, open source
+## UnitConverter
+Simple unit converter - no ads, open source
+
+Works on Android and iOS
