@@ -1,6 +1,6 @@
 {
-  "name": "My App",
-  "description": "Description of your app",
+  "name": "Unit Converter",
+  "description": "Simple Unit Converter",
   "launch_path": "/index.html",
   "icons": {
     "128": "/img/logo.png"
