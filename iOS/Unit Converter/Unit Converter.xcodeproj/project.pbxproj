@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3E113C201EDB331C001DF63E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E113C1F1EDB331C001DF63E /* Constants.swift */; };
-		3E2CD9B61EDB77DC00FF2DF8 /* ConverterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CD9B51EDB77DC00FF2DF8 /* ConverterModel.swift */; };
 		3EACDF471EDA3E8C00A75F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF461EDA3E8C00A75F7A /* AppDelegate.swift */; };
 		3EACDF491EDA3E8C00A75F7A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF481EDA3E8C00A75F7A /* RootViewController.swift */; };
 		3EACDF4B1EDA3E8C00A75F7A /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF4A1EDA3E8C00A75F7A /* DataViewController.swift */; };
@@ -18,7 +17,7 @@
 		3EACDF551EDA3E8C00A75F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EACDF531EDA3E8C00A75F7A /* LaunchScreen.storyboard */; };
 		3EACDF601EDA3E8C00A75F7A /* Unit_ConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF5F1EDA3E8C00A75F7A /* Unit_ConverterTests.swift */; };
 		3EACDF6B1EDA3E8C00A75F7A /* Unit_ConverterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EACDF6A1EDA3E8C00A75F7A /* Unit_ConverterUITests.swift */; };
-		3EB7A3711EDD1AE600D2FB09 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7A3701EDD1AE600D2FB09 /* UnitConverter.swift */; };
+		B7985F039DBBC38CC6695579 /* Pods_Unit_Converter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B95929A27EEE28091ED8295 /* Pods_Unit_Converter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		3E113C1F1EDB331C001DF63E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3E2CD9B51EDB77DC00FF2DF8 /* ConverterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterModel.swift; sourceTree = "<group>"; };
 		3EACDF431EDA3E8C00A75F7A /* Unit Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EACDF461EDA3E8C00A75F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EACDF481EDA3E8C00A75F7A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +54,9 @@
 		3EACDF661EDA3E8C00A75F7A /* Unit ConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit ConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EACDF6A1EDA3E8C00A75F7A /* Unit_ConverterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit_ConverterUITests.swift; sourceTree = "<group>"; };
 		3EACDF6C1EDA3E8C00A75F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EB7A3701EDD1AE600D2FB09 /* UnitConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
+		4B95929A27EEE28091ED8295 /* Pods_Unit_Converter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unit_Converter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B3A910DF4734B00123F2A94 /* Pods-Unit Converter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unit Converter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unit Converter/Pods-Unit Converter.debug.xcconfig"; sourceTree = "<group>"; };
+		E9E55E13E6FD1257CC71D5C2 /* Pods-Unit Converter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unit Converter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unit Converter/Pods-Unit Converter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7985F039DBBC38CC6695579 /* Pods_Unit_Converter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,14 +93,6 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		3E2CD9B41EDB77C700FF2DF8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3E2CD9B51EDB77DC00FF2DF8 /* ConverterModel.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		3EACDF3A1EDA3E8C00A75F7A = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +100,8 @@
 				3EACDF5E1EDA3E8C00A75F7A /* Unit ConverterTests */,
 				3EACDF691EDA3E8C00A75F7A /* Unit ConverterUITests */,
 				3EACDF441EDA3E8C00A75F7A /* Products */,
+				EB9BA88AFD5BFA49B7F73E6C /* Pods */,
+				A0519DE89D1282C94C5C03D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +118,6 @@
 		3EACDF451EDA3E8C00A75F7A /* Unit Converter */ = {
 			isa = PBXGroup;
 			children = (
-				3EB7A36F1EDD1AC700D2FB09 /* Converter */,
-				3E2CD9B41EDB77C700FF2DF8 /* Model */,
 				3E113C1E1EDB32FD001DF63E /* Utils */,
 				3EACDF461EDA3E8C00A75F7A /* AppDelegate.swift */,
 				3EACDF481EDA3E8C00A75F7A /* RootViewController.swift */,
@@ -156,12 +149,21 @@
 			path = "Unit ConverterUITests";
 			sourceTree = "<group>";
 		};
-		3EB7A36F1EDD1AC700D2FB09 /* Converter */ = {
+		A0519DE89D1282C94C5C03D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3EB7A3701EDD1AE600D2FB09 /* UnitConverter.swift */,
+				4B95929A27EEE28091ED8295 /* Pods_Unit_Converter.framework */,
 			);
-			name = Converter;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB9BA88AFD5BFA49B7F73E6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B3A910DF4734B00123F2A94 /* Pods-Unit Converter.debug.xcconfig */,
+				E9E55E13E6FD1257CC71D5C2 /* Pods-Unit Converter.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EACDF6F1EDA3E8C00A75F7A /* Build configuration list for PBXNativeTarget "Unit Converter" */;
 			buildPhases = (
+				FB8451198862F2C04230CAED /* [CP] Check Pods Manifest.lock */,
 				3EACDF3F1EDA3E8C00A75F7A /* Sources */,
 				3EACDF401EDA3E8C00A75F7A /* Frameworks */,
 				3EACDF411EDA3E8C00A75F7A /* Resources */,
+				974436805164BCB5B00A128D /* [CP] Embed Pods Frameworks */,
+				2D4E9A05FF78854603CB2C3F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,6 +301,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D4E9A05FF78854603CB2C3F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unit Converter/Pods-Unit Converter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		974436805164BCB5B00A128D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unit Converter/Pods-Unit Converter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB8451198862F2C04230CAED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3EACDF3F1EDA3E8C00A75F7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -303,10 +356,8 @@
 			files = (
 				3E113C201EDB331C001DF63E /* Constants.swift in Sources */,
 				3EACDF491EDA3E8C00A75F7A /* RootViewController.swift in Sources */,
-				3EB7A3711EDD1AE600D2FB09 /* UnitConverter.swift in Sources */,
 				3EACDF4D1EDA3E8C00A75F7A /* ModelController.swift in Sources */,
 				3EACDF4B1EDA3E8C00A75F7A /* DataViewController.swift in Sources */,
-				3E2CD9B61EDB77DC00FF2DF8 /* ConverterModel.swift in Sources */,
 				3EACDF471EDA3E8C00A75F7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +510,7 @@
 		};
 		3EACDF701EDA3E8C00A75F7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3A910DF4734B00123F2A94 /* Pods-Unit Converter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -473,6 +525,7 @@
 		};
 		3EACDF711EDA3E8C00A75F7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E55E13E6FD1257CC71D5C2 /* Pods-Unit Converter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

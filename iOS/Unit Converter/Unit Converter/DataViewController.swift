@@ -8,15 +8,27 @@
 
 import UIKit
 
-class DataViewController: UIViewController {
+class DataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var dataLabel: UILabel!
     var dataObject: String = ""
 
+    @IBOutlet weak var fromPicker: UIPickerView!
 
+    @IBOutlet weak var toPicker: UIPickerView!
+    
+    let muteForPickerData = ["minute(s)","hour(s)"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //let isEqual = (dataObject == "area")
+        fromPicker.delegate = self
+        fromPicker.dataSource = self
+        toPicker.delegate = self
+        toPicker.dataSource = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +39,22 @@ class DataViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return muteForPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return muteForPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
     }
 
 
