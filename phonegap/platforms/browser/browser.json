@@ -9,10 +9,6 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Camera\"><param name=\"browser-package\" value=\"Camera\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Device\"><param name=\"browser-package\" value=\"Device\" /></feature>",
                             "count": 1
                         }
@@ -25,16 +21,10 @@
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
         },
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
-        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
-        },
-        "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
         },
         "cordova-plugin-console": {
@@ -56,9 +46,6 @@
             "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
         },
         "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
-        },
-        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.nfsindustries.ayaconversor"
         },
         "cordova-plugin-globalization": {
@@ -100,36 +87,6 @@
             "file": "plugins/cordova-plugin-battery-status/src/browser/BatteryProxy.js",
             "id": "cordova-plugin-battery-status.Battery",
             "pluginId": "cordova-plugin-battery-status",
-            "runs": true
-        },
-        {
-            "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
-            "id": "cordova-plugin-camera.Camera",
-            "pluginId": "cordova-plugin-camera",
-            "clobbers": [
-                "Camera"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
-            "id": "cordova-plugin-camera.CameraPopoverOptions",
-            "pluginId": "cordova-plugin-camera",
-            "clobbers": [
-                "CameraPopoverOptions"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-camera/www/Camera.js",
-            "id": "cordova-plugin-camera.camera",
-            "pluginId": "cordova-plugin-camera",
-            "clobbers": [
-                "navigator.camera"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-camera/src/browser/CameraProxy.js",
-            "id": "cordova-plugin-camera.CameraProxy",
-            "pluginId": "cordova-plugin-camera",
             "runs": true
         },
         {
@@ -312,38 +269,6 @@
             ]
         },
         {
-            "file": "plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js",
-            "id": "cordova-plugin-media-capture.CaptureAudioOptions",
-            "pluginId": "cordova-plugin-media-capture",
-            "clobbers": [
-                "CaptureAudioOptions"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-media-capture/www/CaptureImageOptions.js",
-            "id": "cordova-plugin-media-capture.CaptureImageOptions",
-            "pluginId": "cordova-plugin-media-capture",
-            "clobbers": [
-                "CaptureImageOptions"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-media-capture/www/CaptureVideoOptions.js",
-            "id": "cordova-plugin-media-capture.CaptureVideoOptions",
-            "pluginId": "cordova-plugin-media-capture",
-            "clobbers": [
-                "CaptureVideoOptions"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-media-capture/www/CaptureError.js",
-            "id": "cordova-plugin-media-capture.CaptureError",
-            "pluginId": "cordova-plugin-media-capture",
-            "clobbers": [
-                "CaptureError"
-            ]
-        },
-        {
             "file": "plugins/cordova-plugin-media-capture/www/MediaFileData.js",
             "id": "cordova-plugin-media-capture.MediaFileData",
             "pluginId": "cordova-plugin-media-capture",
@@ -357,14 +282,6 @@
             "pluginId": "cordova-plugin-media-capture",
             "clobbers": [
                 "MediaFile"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-media-capture/www/capture.js",
-            "id": "cordova-plugin-media-capture.capture",
-            "pluginId": "cordova-plugin-media-capture",
-            "clobbers": [
-                "navigator.device.capture"
             ]
         },
         {
@@ -694,10 +611,8 @@
     ],
     "plugin_metadata": {
         "cordova-plugin-battery-status": "1.1.2",
-        "cordova-plugin-camera": "2.1.1",
         "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-file": "4.3.3",
-        "cordova-plugin-media-capture": "1.2.0",
         "cordova-plugin-console": "1.0.7",
         "cordova-plugin-contacts": "2.0.1",
         "cordova-plugin-device": "1.1.6",
