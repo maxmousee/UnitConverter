@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.nfsindustries.ayaconversor" version="3.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.nfsindustries.ayaconversor" version="3.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>UnitConverter</name>
     <description>
-        Simple unit converter using phone gap.
+        Simple unit converter made using Adobe PhoneGap framework.
     </description>
     <author email="maxmousee@gmail.com" href="http://phonegap.com">
         Natan Facchin
@@ -10,23 +10,19 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
     <plugin name="cordova-plugin-console" source="npm" spec="~1.1.0" />
-    <plugin name="cordova-plugin-contacts" source="npm" spec="~2.3.1" />
-    <plugin name="cordova-plugin-device" source="npm" spec="~1.1.6" />
-    <plugin name="cordova-plugin-device-motion" source="npm" spec="~2.0.0" />
-    <plugin name="cordova-plugin-device-orientation" source="npm" spec="~2.0.0" />
-    <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.3.3" />
-    <plugin name="cordova-plugin-file" source="npm" spec="~4.3.3" />
-    <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.6.3" />
-    <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.7" />
-    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.7.1" />
-    <plugin name="cordova-plugin-media" source="npm" spec="~3.0.1" />
-    <plugin name="cordova-plugin-network-information" source="npm" spec="~1.3.3" />
-    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~4.0.3" />
-    <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.2.3" />
-    <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.5" />
-    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.3.2" />
+    <plugin name="cordova-plugin-device" source="npm" spec="2.0.0" />
+    <plugin name="cordova-plugin-device-motion" source="npm" spec="2.0.0" />
+    <plugin name="cordova-plugin-device-orientation" source="npm" spec="2.0.0" />
+    <plugin name="cordova-plugin-dialogs" source="npm" spec="1.3.4" />
+    <plugin name="cordova-plugin-file" source="npm" spec="6.0.0" />
+    <plugin name="cordova-plugin-globalization" source="npm" spec="1.0.9" />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="2.0.0" />
+    <plugin name="cordova-plugin-media" source="npm" spec="5.0.0" />
+    <plugin name="cordova-plugin-network-information" source="npm" spec="2.0.0" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.0" />
+    <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.0" />
+    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.3.3" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
